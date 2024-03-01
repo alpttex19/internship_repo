@@ -17,7 +17,7 @@ def get_exchange_rate(date, currency):
         # 将日期从 "YYYYMMDD" 格式转换为 "YYYY-MM-DD" 格式
         date = datetime.strptime(date, "%Y%m%d").strftime("%Y-%m-%d")
         # 读入json文件，根据中文名获取货币代码
-        with open("output.json", "r", encoding="utf-8") as f:
+        with open("currency.json", "r", encoding="utf-8") as f:
             currency_dict = json.load(f)
         currency_name = currency_dict[currency]
 
@@ -60,7 +60,7 @@ def get_exchange_rate(date, currency):
     finally:
         # 关闭浏览器
         driver.quit()
-        
+
     return sell_price
 
 if __name__ == "__main__":
